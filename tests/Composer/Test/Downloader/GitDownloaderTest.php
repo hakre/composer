@@ -339,7 +339,7 @@ class GitDownloaderTest extends \PHPUnit_Framework_TestCase
     {
         if (defined('PHP_WINDOWS_VERSION_BUILD')) {
             $cmd = str_replace('cd ', 'cd /D ', $cmd);
-            $cmd = str_replace('composerPath', getcwd().'/composerPath', $cmd);
+            $cmd = str_replace('composerPath', realpath(getcwd()).'/composerPath', $cmd);
 
             return strtr($cmd, "'", '"');
         }
